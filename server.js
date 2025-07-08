@@ -58,6 +58,7 @@ app.post("/sync-sheet", async (req, res) => {
   }
 });
 
-const listener = app.listen(process.env.PORT || 3000, () => {
-  console.log(`App running on port ${listener.address().port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}`);
 });
