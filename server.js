@@ -44,6 +44,7 @@ async function insertData(headers, rows) {
   }
 }
 
+// Your existing POST route
 app.post("/sync-sheet", async (req, res) => {
   const { headers, data } = req.body;
 
@@ -58,6 +59,12 @@ app.post("/sync-sheet", async (req, res) => {
   }
 });
 
+// ** Add this GET route to check if server is alive **
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+// Start server on the port Render provides or 3000 locally
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
